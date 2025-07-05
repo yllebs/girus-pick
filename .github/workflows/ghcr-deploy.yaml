@@ -11,12 +11,12 @@ jobs:
           docker login --username sibelly --password ${{ secrets.GH_PAT }} ghcr.io
           cd backend
           docker build . --tag ghcr.io/sibelly/girus-backend:latest
-          docker push ghcr.io/sibelly/girus-backend:latest
+          docker push ghcr.io/yllebs/girus-backend:latest
           cd ..
           cd frontend
-          docker build . --tag ghcr.io/sibelly/girus-frontend:latest
-          docker push ghcr.io/sibelly/girus-frontend:latest
+          docker build . --tag ghcr.io/yllebs/girus-frontend:latest
+          docker push ghcr.io/yllebs/girus-frontend:latest
           cd ..
           cd container-images/girus-k8s
-          docker build . --tag ghcr.io/sibelly/girus-k8s-istio:latest
-          docker push ghcr.io/sibelly/girus-k8s-istio:latest
+          docker build . --tag ghcr.io/yllebs/girus-k8s-istio:latest
+          docker push ghcr.io/yllebs/girus-k8s-istio:latest
