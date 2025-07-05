@@ -1,0 +1,110 @@
+<!-- Código para incorporar o Girus na sua plataforma -->
+<!-- Copie e cole este código na área de embed da sua plataforma -->
+
+<div id="girus-embed-container" style="width: 100%; height: 100vh; overflow: hidden; position: relative; margin: 0; padding: 0;">
+  <iframe 
+    id="girus-iframe" 
+    src="http://localhost:8000/lab/docker-basics" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; margin: 0; padding: 0; overflow: hidden; z-index: 999;" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- Script para gerenciar a comunicação com o iframe do Girus -->
+<script>
+  // Configuração de inicialização 
+  // Você pode personalizar estes parâmetros conforme necessário
+  const girusConfig = {
+    autoLogin: true,           // Autenticar automaticamente
+    theme: 'dark',             // Tema: 'dark' ou 'light'
+    defaultLab: null,          // ID do laboratório padrão para iniciar automaticamente (opcional)
+    hideHeader: true,          // Ocultar cabeçalho do Girus para integração perfeita
+    partnerName: 'YOUR_PLATFORM_NAME', // Nome da sua plataforma para o registro
+    customImage: {             // Imagens personalizadas para tipos específicos de laboratórios
+      'linux': 'linuxtips/girus-devops:0.1',
+      'terraform': 'linuxtips/girus-devops:0.1',
+      'docker': 'linuxtips/girus-devops:0.1'
+    }
+  };
+
+  // Inicializar o iframe quando o documento estiver pronto
+  document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.getElementById('girus-iframe');
+    
+    // Adicionar parâmetros de configuração à URL
+    const url = new URL(iframe.src);
+    Object.keys(girusConfig).forEach(key => {
+      if (key === 'customImage') {
+        // Para as imagens customizadas, precisamos codificar o objeto JSON
+        url.searchParams.append(key, JSON.stringify(girusConfig[key]));
+      } else if (girusConfig[key] !== null) {
+        url.searchParams.append(key, girusConfig[key]);
+      }
+    });
+    iframe.src = url.toString();
+    
+    // Configurar comunicação entre janelas
+    window.addEventListener('message', function(event) {
+      // Verificar a origem da mensagem para segurança
+      if (event.origin !== new URL(iframe.src).origin) return;
+      
+      // Processar mensagens do Girus
+      if (event.data.type === 'girus:event') {
+        console.log('Evento do Girus recebido:', event.data);
+        
+        // Exemplo de como reagir a eventos
+        if (event.data.event === 'lab:completed') {
+          // Você pode notificar seu sistema sobre o progresso do usuário
+          console.log('Laboratório concluído:', event.data.labId);
+        }
+      }
+    });
+  });
+
+  // Função para enviar comandos para o Girus
+  function sendGirusCommand(command, data = {}) {
+    const iframe = document.getElementById('girus-iframe');
+    iframe.contentWindow.postMessage({
+      type: 'girus:command',
+      command: command,
+      data: data
+    }, iframe.src);
+  }
+  
+  // Exemplos de comandos que você pode usar:
+  // sendGirusCommand('openLab', { labId: 'kubernetes-intro', image: 'linuxtips/girus-devops:0.1' });
+  // sendGirusCommand('resetLab');
+  // sendGirusCommand('setTheme', { theme: 'light' });
+</script>
+
+<!-- 
+INSTRUÇÕES ADICIONAIS:
+
+1. AUTENTICAÇÃO:
+   - Padrão: O usuário precisará fazer login no Girus
+   - SSO: Para implementar Single Sign-On, entre em contato com suporte@girus.cloud
+
+2. PERSONALIZAÇÃO:
+   - Você pode customizar a aparência alterando o parâmetro 'theme'
+   - Para personalização avançada, consulte a documentação em https://docs.girus.cloud/embed
+
+3. IMAGENS CUSTOMIZADAS:
+   - Para laboratórios de Linux, Terraform e Docker, a imagem 'linuxtips/girus-devops:0.1' será utilizada automaticamente
+   - É possível especificar imagens diferentes para cada tipo de laboratório através do parâmetro 'customImage'
+
+4. EVENTOS DISPONÍVEIS:
+   - lab:started - Quando um laboratório é iniciado
+   - lab:completed - Quando um laboratório é concluído
+   - task:completed - Quando uma tarefa é concluída
+   - user:authenticated - Quando o usuário é autenticado
+
+5. COMANDOS DISPONÍVEIS:
+   - openLab - Abre um laboratório específico
+   - resetLab - Reinicia o laboratório atual
+   - setTheme - Altera o tema
+   - logout - Desconecta o usuário atual
+
+Para mais informações e suporte, acesse https://github.com/badtuxx/girus ou
+entre em contato pelo Discord da LINUXtips.
+-->

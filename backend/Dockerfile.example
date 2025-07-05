@@ -1,0 +1,26 @@
+
+FROM alpine-minirootfs-3.19.7-x86_64.tar.gz
+
+#CMD ["/bin/sh"]
+
+RUN /bin/sh -c apk --no-cache add ca-certificates tzdata && update-ca-certificates # buildkit
+
+RUN /bin/sh -c adduser -D
+
+WORKDIR /app
+
+COPY /app/girus-server .
+
+RUN /bin/sh -c echo '{"port": 8080}' > config.json
+
+USER girus
+
+ENV GIN_MODE=release
+
+ENV PORT=8080
+
+#EXPOSE map[8080/tcp:{}]
+
+#HEALTHCHECK &{["CMD-SHELL" "wget -q --spider http://localhost:8080/api/v1/health || exit 1"] "30s" "5s" "5s" "0s" '\x03'}
+
+CMD ["./girus-server"]

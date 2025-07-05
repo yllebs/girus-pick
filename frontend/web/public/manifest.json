@@ -1,0 +1,25 @@
+{
+    "short_name": "Girus Labs",
+    "name": "Girus Labs - Plataforma de Laboratórios LINUXtips",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "pinguim-toskao.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "pinguim-toskao.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#FF9900",
+    "background_color": "#1c1e22"
+}

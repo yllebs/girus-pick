@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e5fc0b22.css",
+    "main.js": "/static/js/main.2254fbdc.js",
+    "static/js/453.e5407da2.chunk.js": "/static/js/453.e5407da2.chunk.js",
+    "static/media/kubernetes-logo.png": "/static/media/kubernetes-logo.d4a3b39456a880ca0435.png",
+    "static/media/docker-logo.png": "/static/media/docker-logo.1547a9dd5c5b4a66cc86.png",
+    "static/media/tux-logo.png": "/static/media/tux-logo.fd76d6c594a584e3a876.png",
+    "index.html": "/index.html",
+    "main.e5fc0b22.css.map": "/static/css/main.e5fc0b22.css.map",
+    "main.2254fbdc.js.map": "/static/js/main.2254fbdc.js.map",
+    "453.e5407da2.chunk.js.map": "/static/js/453.e5407da2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5fc0b22.css",
+    "static/js/main.2254fbdc.js"
+  ]
+}

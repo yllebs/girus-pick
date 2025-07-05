@@ -1,0 +1,748 @@
+/* LINUXtips Theme for girus Lab Platform */
+
+:root {
+    --linuxtips-yellow: #fdc43f;
+    --linuxtips-blue: #326CE5;
+    --linuxtips-orange: #FF9900;
+    --linuxtips-black: #1c1e22;
+    --linuxtips-dark-gray: #2d323b;
+    --linuxtips-light-gray: #444;
+    --linuxtips-text: #ffffff;
+    --linuxtips-text-secondary: #b0b0b0;
+    --linuxtips-success: #4CAF50;
+    --linuxtips-warning: #FFC107;
+    --linuxtips-danger: #f44336;
+    --linuxtips-info: #2196F3;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --card-border-radius: 8px;
+}
+
+body {
+    background-color: var(--linuxtips-black);
+    color: var(--linuxtips-text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+.linuxtips-header {
+    background-color: var(--linuxtips-black);
+    border: none;
+    padding: 16px 0;
+    width: 100%;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 24px;
+}
+
+.header-title h1 {
+    color: var(--linuxtips-text);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.linuxtips-logo,
+.k8s-logo {
+    height: 40px;
+    width: auto;
+    margin-right: 12px;
+}
+
+.tux-logo {
+    height: 36px;
+    width: auto;
+    margin-right: 12px;
+}
+
+/* Card styles for all labs */
+.lab-card {
+    background-color: var(--linuxtips-dark-gray);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.lab-card-header {
+    background-color: var(--linuxtips-yellow);
+    padding: 16px;
+    font-weight: 600;
+    color: var(--linuxtips-black);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Regular lab header */
+.lab-card.linux .lab-card-header {
+    background-color: var(--linuxtips-orange);
+    color: var(--linuxtips-black);
+    border-bottom: 2px solid var(--linuxtips-orange);
+}
+
+/* Kubernetes lab header */
+.lab-card.kubernetes .lab-card-header {
+    background-color: var(--linuxtips-blue);
+    color: white;
+    border-bottom: 2px solid var(--linuxtips-blue);
+}
+
+.lab-card-content {
+    padding: 16px;
+    flex-grow: 1;
+}
+
+.lab-card-content p {
+    color: var(--linuxtips-text);
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.lab-card-footer {
+    padding: 16px;
+    border-top: 1px solid var(--linuxtips-light-gray);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lab-metadata {
+    margin-top: 8px;
+}
+
+.lab-metadata div {
+    margin-bottom: 8px;
+}
+
+.lab-metadata strong {
+    margin-right: 8px;
+    color: var(--linuxtips-text);
+}
+
+/* Button styles */
+.linuxtips-btn {
+    background-color: var(--linuxtips-yellow);
+    color: #1a1a1a;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.linuxtips-btn:hover {
+    background-color: #e3b037;
+    /* Versão mais escura do amarelo */
+}
+
+/* Botão específico para laboratórios Linux */
+.linuxtips-btn.linux {
+    background-color: var(--linuxtips-orange);
+    color: #1a1a1a;
+}
+
+.linuxtips-btn.linux:hover {
+    background-color: #e68a00;
+    /* Versão mais escura do laranja */
+}
+
+.linuxtips-btn.secondary {
+    background-color: transparent;
+    color: var(--linuxtips-text);
+    border: 1px solid var(--linuxtips-light-gray);
+}
+
+.linuxtips-btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.linuxtips-btn.k8s {
+    background-color: var(--linuxtips-blue);
+    color: white;
+}
+
+.linuxtips-btn.k8s:hover {
+    background-color: var(--linuxtips-blue);
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--linuxtips-yellow);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Kubernetes Components */
+.k8s-task {
+    border-left: 4px solid var(--linuxtips-blue);
+}
+
+.k8s-section {
+    margin-bottom: 24px;
+}
+
+.k8s-title {
+    color: var(--linuxtips-text);
+    border-bottom: 2px solid var(--linuxtips-blue);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.k8s-resource {
+    margin-bottom: 16px;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.k8s-resource pre {
+    background-color: #282c34;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 0;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.k8s-status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.k8s-status-running {
+    background-color: var(--linuxtips-success);
+    color: white;
+}
+
+.k8s-status-pending {
+    background-color: var(--linuxtips-warning);
+    color: black;
+}
+
+.k8s-status-failed {
+    background-color: var(--linuxtips-danger);
+    color: white;
+}
+
+.k8s-command {
+    background-color: var(--linuxtips-black);
+    border: 1px solid var(--linuxtips-light-gray);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    position: relative;
+    overflow-x: auto;
+}
+
+/* Code Blocks */
+.code-block {
+    background-color: #282c34;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    overflow-x: auto;
+    border: 1px solid var(--linuxtips-light-gray);
+}
+
+.code-block code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+}
+
+.k8s-resource-type {
+    color: var(--linuxtips-blue);
+}
+
+.yaml-key {
+    color: #9CDCFE;
+}
+
+.yaml-value {
+    color: #CE9178;
+}
+
+.hljs-string {
+    color: #CE9178;
+}
+
+.hljs-number {
+    color: #B5CEA8;
+}
+
+.hljs-comment {
+    color: #6A9955;
+    font-style: italic;
+}
+
+/* Kubernetes Lab Header */
+.k8s-lab-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 16px;
+}
+
+.k8s-lab-header .k8s-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+}
+
+.k8s-lab-header .k8s-info {
+    flex: 1;
+}
+
+.k8s-lab-header h2 {
+    margin: 0 0 8px 0;
+    color: var(--linuxtips-text);
+}
+
+.k8s-lab-header p {
+    margin: 0;
+    color: var(--linuxtips-text-secondary);
+}
+
+/* Kubernetes Diagram */
+.k8s-diagram {
+    background-color: var(--linuxtips-dark-gray);
+    border-radius: var(--card-border-radius);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.k8s-diagram-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--linuxtips-text);
+}
+
+.k8s-diagram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.k8s-diagram-item {
+    background-color: var(--linuxtips-black);
+    border: 2px solid var(--linuxtips-blue);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    min-width: 120px;
+    font-weight: 500;
+}
+
+.k8s-diagram-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--linuxtips-text-secondary);
+    font-size: 1.5rem;
+    padding: 0 8px;
+}
+
+/* Kubernetes Tips */
+.k8s-tips {
+    background-color: var(--linuxtips-dark-gray);
+    border-left: 4px solid var(--linuxtips-blue);
+    border-radius: 0 4px 4px 0;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.k8s-tips-title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--linuxtips-text);
+}
+
+.k8s-tips-title .icon {
+    margin-right: 8px;
+}
+
+.k8s-tips-content {
+    color: var(--linuxtips-text-secondary);
+}
+
+/* Tip Containers - Enhanced Styling */
+.MuiPaper-root.MuiPaper-elevation2 {
+    margin-top: 10px !important;
+    margin-bottom: 16px !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    position: relative !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Tip Headers - Enhanced Visibility */
+.MuiPaper-root.MuiPaper-elevation2>div:first-child {
+    padding: 10px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Tip Content - Improved Readability */
+.MuiPaper-root.MuiPaper-elevation2>div:last-child {
+    padding: 16px !important;
+    color: var(--linuxtips-text) !important;
+    line-height: 1.6 !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation2>div:last-child code {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace !important;
+}
+
+.bg-k8s-blue {
+    background-color: var(--linuxtips-blue);
+}
+
+/* Validações */
+.linuxtips-validation-success {
+    background-color: rgba(76, 175, 80, 0.2);
+    border-left: 4px solid var(--linuxtips-success);
+    color: var(--linuxtips-text);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.linuxtips-validation-error {
+    background-color: rgba(244, 67, 54, 0.2);
+    border-left: 4px solid var(--linuxtips-danger);
+    color: var(--linuxtips-text);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Tarefas */
+.linuxtips-task {
+    background-color: var(--linuxtips-dark-gray);
+    border-radius: var(--card-border-radius);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.linuxtips-task-completed {
+    border-left: 4px solid var(--linuxtips-success);
+}
+
+.linuxtips-task-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.linuxtips-task-title .icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.linuxtips-task-description {
+    color: var(--linuxtips-text-secondary);
+    margin-bottom: 16px;
+}
+
+.linuxtips-task-steps {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+.linuxtips-task-steps li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.linuxtips-task-steps li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--linuxtips-yellow);
+}
+
+/* Layout do Workspace */
+.linuxtips-workspace {
+    display: flex;
+    gap: 24px;
+    height: calc(100vh - 110px);
+    padding: 24px;
+}
+
+.linuxtips-workspace-terminal {
+    flex: 2;
+    max-width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linuxtips-workspace-sidebar {
+    flex: 1;
+    min-width: 280px;
+    max-width: 35%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.linuxtips-workspace-sidebar-header {
+    background-color: var(--linuxtips-yellow);
+    color: var(--linuxtips-black);
+    padding: 12px 16px;
+    font-weight: 600;
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.linuxtips-workspace-sidebar-content {
+    padding: 16px;
+}
+
+/* Terminal */
+.linuxtips-terminal {
+    background-color: #000;
+    border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
+    overflow: hidden;
+    flex-grow: 1;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+}
+
+.linuxtips-terminal-header {
+    background-color: var(--linuxtips-dark-gray);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}
+
+.linuxtips-terminal-header .circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.circle.red {
+    background-color: #ff5f56;
+}
+
+.circle.yellow {
+    background-color: #ffbd2e;
+}
+
+.circle.green {
+    background-color: #27c93f;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .linuxtips-workspace {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .linuxtips-workspace-terminal,
+    .linuxtips-workspace-sidebar {
+        max-width: 100%;
+    }
+
+    .linuxtips-workspace-terminal {
+        height: 60vh;
+    }
+}
+
+/* Estilos para as descrições de tarefas */
+.task-description {
+    color: var(--linuxtips-text);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.task-description ul,
+.task-description ol {
+    padding-left: 20px;
+    margin: 8px 0;
+    color: var(--linuxtips-text);
+}
+
+.task-description li {
+    margin-bottom: 6px;
+    color: var(--linuxtips-text);
+}
+
+.task-description p {
+    color: var(--linuxtips-text);
+}
+
+.task-description code:not(.yaml-code-block code) {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    color: var(--linuxtips-text);
+}
+
+/* Estilos para blocos de comando */
+.command-block {
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    position: relative;
+    border-left: 3px solid var(--linuxtips-orange);
+}
+
+.command-block code {
+    color: #e0e0e0;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.command-block:before {
+    content: "$";
+    position: absolute;
+    left: 6px;
+    color: var(--linuxtips-orange);
+    opacity: 0.7;
+    font-weight: bold;
+}
+
+.command-block code {
+    margin-left: 14px;
+    display: block;
+}
+
+/* Estilos para blocos de código YAML */
+.yaml-code-block {
+    background-color: #282c34;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 12px 0;
+    overflow-x: auto;
+    border: 1px solid var(--linuxtips-light-gray);
+    position: relative;
+}
+
+/* Estilo específico para blocos YAML em listas */
+.yaml-list-item {
+    margin-top: 10px;
+    margin-left: -20px;
+    /* Ajustar para alinhar com o texto da lista */
+    width: calc(100% + 20px);
+    /* Compensar a margem negativa */
+}
+
+/* Badge indicando que é um YAML */
+.yaml-code-block:before {
+    content: "YAML";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--linuxtips-blue);
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 0 4px 0 4px;
+    font-family: sans-serif;
+}
+
+.yaml-code-block pre {
+    margin: 0;
+    white-space: pre;
+}
+
+.yaml-code-block code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    display: block;
+    white-space: pre;
+}
+
+/* TIPS STYLING - ESSENTIAL FOR PROPER DISPLAY */
+.tips-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid var(--linuxtips-yellow);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.tips-section-title {
+    background-color: var(--linuxtips-dark-gray);
+    padding: 12px 16px;
+    font-weight: 600;
+    color: var(--linuxtips-text);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    display: block !important;
+}
+
+/* Force tips container visibility */
+.task-description>div>h6+div {
+    display: block !important;
+    visibility: visible !important;
+    margin-bottom: 24px !important;
+}
