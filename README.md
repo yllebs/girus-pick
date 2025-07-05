@@ -2,18 +2,6 @@
 
 # Resolução do Desafio PICK: Criação de Imagens para GIRUS
 
-## Importante: Política de Confidencialidade
-
-É estritamente proibida a reprodução ou compartilhamento deste desafio e de qualquer material relacionado a ele antes do dia da apresentação dos trabalhos. Todos os participantes devem manter o conteúdo do desafio em sigilo até a conclusão oficial do programa. O não cumprimento desta política poderá resultar em desqualificação do desafio e a perda do direito de participar do programa.
-
-Ao participar do desafio, você concorda com a política de confidencialidade e concorda em não compartilhar o desafio com terceiros.
-
-## Visão Geral da Resolução Desafio
-
-Este repositório contém a resolução do desafio para os alunos do PICK (Programa Intensivo em Containers e Kubernetes) da LINUXtips.
-Foi criado e otimizado 3 imagens docker:
-
-
 ## Objetivos do Desafio
 
 Durante os próximos 30 dias, os estudantes deverão:
