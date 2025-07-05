@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/sibelly/girus-pick/backend/internal/core"
+	"github.com/yllebs/girus-pick/backend/internal/core"
 )
 
 var version = "0.1"

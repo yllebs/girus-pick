@@ -10,7 +10,7 @@ jobs:
         run : |
           docker login --username sibelly --password ${{ secrets.GH_PAT }} ghcr.io
           cd backend
-          docker build . --tag ghcr.io/sibelly/girus-backend:latest
+          docker build . --tag ghcr.io/yllebs/girus-backend:latest
           docker push ghcr.io/yllebs/girus-backend:latest
           cd ..
           cd frontend

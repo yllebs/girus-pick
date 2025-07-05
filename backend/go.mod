@@ -1,4 +1,4 @@
-module github.com/sibelly/girus-pick/backend
+module github.com/yllebs/girus-pick/backend
 
 go 1.24.0
 

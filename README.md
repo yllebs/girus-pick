@@ -57,10 +57,10 @@ Você deve se basear nos Dockerfiles existentes em `container-images/` para cria
 2. **Executando sua imagem Docker do backend**:
    ```bash
    # Construa sua imagem no diretório /backend
-   docker build -t sibelly/girus-backend:latest -f Dockerfile .
+   docker build -t yllebs/girus-backend:latest -f Dockerfile .
    
    # Execute localmente
-   docker run -p 8080:8080 -v ~/.kube/config:/root/.kube/config sibelly/girus-backend:latest
+   docker run -p 8080:8080 -v ~/.kube/config:/root/.kube/config yllebs/girus-backend:latest
 
    # Run with the env var set
    docker run -p 8080:8080 \
@@ -89,10 +89,10 @@ Você deve se basear nos Dockerfiles existentes em `container-images/` para cria
 2. **Testando sua imagem Docker do frontend**:
    ```bash
    # Construa sua imagem
-   docker build -t sibelly/girus-frontend:latest -f Dockerfile .
+   docker build -t yllebs/girus-frontend:latest -f Dockerfile .
    
    # Execute localmente (apontando para o backend)
-   docker run -p 3000:80 -e BACKEND_URL=http://localhost:8080 sibelly/giru-frontend:latest
+   docker run -p 3000:80 -e BACKEND_URL=http://localhost:8080 yllebs/giru-frontend:latest
    ```
 
 ### Relatório Trivy

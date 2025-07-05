@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/sibelly/girus-pick/backend/internal/core"
+	"github.com/yllebs/girus-pick/backend/internal/core"
 )
 
 // Handler gerencia as requisições HTTP
