@@ -1,0 +1,22 @@
+name: Docker Image CI for GHCR
+on: 
+  push
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Build and push the backend image
+        run : |
+          docker login --username sibelly --password ${{ secrets.GH_PAT }} ghcr.io
+          cd backend
+          docker build . --tag ghcr.io/sibelly/girus-backend:latest
+          docker push ghcr.io/sibelly/girus-backend:latest
+          cd ..
+          cd frontend
+          docker build . --tag ghcr.io/sibelly/girus-frontend:latest
+          docker push ghcr.io/sibelly/girus-frontend:latest
+          cd ..
+          cd container-images/girus-k8s
+          docker build . --tag ghcr.io/sibelly/girus-k8s-istio:latest
+          docker push ghcr.io/sibelly/girus-k8s-istio:latest
